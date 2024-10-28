@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main style="display: flex; justify-content: center; align-items: center; height: 100vh; width: 100vw;">
+        <div style="background-color: lightgray; width: 400px;height: 500px; display: flex; justify-content: center;align-items: center;flex-direction: column;border-radius: 10%; box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);">
+            <div class="color" style="background-color: red; border-radius: 50%; width: 200px; height: 200px; display: flex; justify-content: center; align-items: center;">
+                <div class="shapes" style="background-color: white; width: 50px; height: 50px;">
+                </div>
+            </div>
+            <div>
+                <button class="btn1">Change Color</button>
+                <button class="btn2">Change Shape</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        const colors = [
+  "#DC143C", // Crimson
+  "#FFD700", // Gold
+  "#3CB371", // Medium Sea Green
+  "#4682B4", // Steel Blue
+  "#9932CC", // Dark Orchid
+  "#FF7F50", // Coral
+  "#2F4F4F", // Dark Slate Gray
+  "#FF6347", // Tomato
+  "#1E90FF", // Dodger Blue
+  "#CD5C5C"  // Indian Red
+];
+const shapesArray = [
+            { borderRadius: "50%", width: "50px", height: "50px" }, // Circle
+            { borderRadius: "0%", width: "50px", height: "50px" }, // Square
+            { borderRadius: "10%", width: "70px", height: "50px" }, // Rectangle
+            { borderRadius: "50% 0", width: "50px", height: "50px" }, // Half Circle
+            { borderRadius: "50% 50% 0 0", width: "50px", height: "50px" } // Semicircle
+        ];
+
+        let color=document.querySelector('.color');
+        let shapes=document.querySelector('.shapes');
+        let btn1=document.querySelector('.btn1');
+        let btn2=document.querySelector('.btn2');
+        let i=1;
+        let shapeIndex = 2;
+        btn1.addEventListener('click',()=>{
+            color.style.backgroundColor=colors[i];
+            i++;
+            i%=colors.length;
+        })
+        btn2.addEventListener('click', () => {
+            const shape = shapesArray[shapeIndex];
+            shapes.style.borderRadius = shape.borderRadius;
+            shapes.style.width = shape.width;
+            shapes.style.height = shape.height;
+            shapeIndex = (shapeIndex + 1) % shapesArray.length;
+        });
+
+
+        
+
+
+    </script>
+</body>
+</html>
